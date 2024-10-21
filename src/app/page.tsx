@@ -44,7 +44,12 @@ export default function Page() {
         <h2 className="text-red-custom text-3xl font-bold font-primary">Devs/&gt;</h2>
       </div>
       <div className="flex flex-wrap gap-4 justify-center gap-y-8">
-        <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
+        <Card nome="Gustavo" 
+        resumo="Especialista em Back-End e Front-End com Java, Node.js, React.js, e Next.js. Utilizo SQL, bancos de dados variados e metodologias ágeis. Desenvolvedor full-stack!" 
+        foto="https://github.com/gustavodscruz.png" 
+        github="https://github.com/gustavodscruz" 
+        linkedin="https://linkedin.com/in/gustavodiasdsc" 
+      />
         <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
         <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
         <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
