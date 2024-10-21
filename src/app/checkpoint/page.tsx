@@ -1,7 +1,7 @@
 export default function Checkpoint(){
     return(
         <>
-            <h1>Checkpoint</h1>
+            <h1 className="text-primary-text">Checkpoint</h1>
         </>
     )
 }

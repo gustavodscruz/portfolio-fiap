@@ -1,7 +1,7 @@
 export default function Global(){
     return(
         <>
-            <p>Global Solution</p>
+            <p className="text-primary-text">Global Solution</p>
         </>
     )
 }

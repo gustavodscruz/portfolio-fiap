@@ -1,7 +1,7 @@
 export default function Challenge(){
     return(
         <>
-            <h1>Challenge</h1>    
+            <h1 className="text-primary-text">Challenge</h1>    
         </>
     )
 }
