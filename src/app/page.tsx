@@ -1,5 +1,6 @@
 import Card from "@/components/CardMembro/cardmembro";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -28,48 +29,57 @@ export default function Page() {
         <p className="text-primary-text text-xl font-medium font-secondary">
           Dos estudos para a prática: veja alguns cases
         </p>
-        <div className="flex justify-between gap-4">
-          <div className="flex flex-col border border-black rounded-md py-5 px-6 gap-4">
-            <Image
-              src="/challenge.svg"
-              alt="icone-challenge"
-              height={48}
-              width={48}
-            />
-            <h3 className="text-primary-text font-primary">
-              Challenge Sprints
-            </h3>
-            <p className="text-primary-text font-secondary">
-              Avaliação dividida em desafios, onde se desenvolve uma aplicação
-              proposta por empresas parceiras
-            </p>
-          </div>
-          <div className="flex flex-col border border-black rounded-md py-3 px-4 gap-4">
-            <Image
-              src="/checkpoint.svg"
-              alt="icone-checkpoint"
-              height={48}
-              width={48}
-            />
-            <h3 className="text-primary-text font-primary">Checkpoints</h3>
-            <p className="text-primary-text font-secondary">
-              Avaliação intermediária, que visa acompanhar o desemprenho dos
-              alunos em cada matéria
-            </p>
-          </div>
-          <div className="flex flex-col border border-black rounded-md py-3 px-4 gap-4">
-            <Image
-              src="/global.svg"
-              alt="icone-global-solution"
-              height={40}
-              width={40}
-            />
-            <h3 className="text-primary-text font-primary">Global Solution</h3>
-            <p className="text-primary-text font-secondary">
-              Avaliação semestral e multidisciplinar onde os alunos resolvem
-              problemas ambientais
-            </p>
-          </div>
+        <div className="flex justify-between gap-4 m-auto">
+          <Link href="/challenge">
+            <div className="flex flex-col border min-h-52 justify-center max-w-96  border-black rounded-md py-5 px-6 gap-4 transition-all duration-300 hover:bg-[#005fa3] group">
+              <Image
+                src="/challenge.svg"
+                alt="icone-challenge"
+                height={48}
+                width={48}
+                className="group-hover:brightness-0 group-hover:saturate-100 group-hover:invert transition-all duration-300"
+              />
+              <h3 className="text-primary-text font-primary">
+                Challenge Sprints
+              </h3>
+              <p className="text-primary-text font-secondary">
+                Avaliação dividida em desafios, onde se desenvolve uma aplicação
+                proposta por empresas parceiras
+              </p>
+            </div>
+          </Link>
+          <Link href="/checkpoint">
+            <div className="flex flex-col border min-h-52 justify-center max-w-96  border-black rounded-md py-3 px-4 gap-4 transition-all duration-300 hover:bg-[#ffd7a3] group">
+              <Image
+                src="/checkpoint.svg"
+                alt="icone-checkpoint"
+                height={48}
+                width={48}
+                className="group-hover:brightness-0 group-hover:saturate-100 transition-all duration-300"
+              />
+              <h3 className="text-primary-text font-primary group-hover:text-black transition-all duration-300">Checkpoints</h3>
+              <p className="text-primary-text font-secondary group-hover:text-black transition-all duration-300">
+                Avaliação intermediária, que visa acompanhar o desemprenho dos
+                alunos em cada matéria
+              </p>
+            </div>
+          </Link>
+          <Link href="/glohal-solution">
+            <div className="flex flex-col border min-h-52 justify-center max-w-96  border-black rounded-md py-3 px-4 gap-4 transition-all duration-300 hover:bg-[#8d48f9] group">
+              <Image
+                src="/global.svg"
+                alt="icone-global-solution"
+                height={40}
+                width={40}
+                className="group-hover:brightness-0 group-hover:saturate-100 group-hover:invert transition-all duration-300"
+              />
+              <h3 className="text-primary-text font-primary">Global Solution</h3>
+              <p className="text-primary-text font-secondary">
+                Avaliação semestral e multidisciplinar onde os alunos resolvem
+                problemas ambientais
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
       <div className="flex flex-col gap-4 items-center mt-8">
