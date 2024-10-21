@@ -43,7 +43,13 @@ export default function Page() {
         <h2 className="text-primary-text text-3xl font-bold font-primary">&lt;Nossos</h2>
         <h2 className="text-red-custom text-3xl font-bold font-primary">Devs/&gt;</h2>
       </div>
-      <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
+      <div className="flex flex-wrap gap-4 justify-center gap-y-8">
+        <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
+        <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
+        <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
+        <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
+        <Card nome="Gustavu" resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"/>
+      </div>
     </div>
   )
 }
