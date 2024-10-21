@@ -12,8 +12,8 @@ type CardMembro = {
 export default function Card({nome, resumo, foto, github, linkedin}: CardMembro){
     return(
         <>
-        <div className="flex flex-col bg-[#1B1616] p-5 rounded-md w-[274px] m-auto items-center">
-            <Image src={foto ?? "/devs.png"} alt={`Foto dev ${nome}`} height={300} width={200}  />
+        <div className="flex flex-col bg-[#1B1616] rounded-md w-[274px] m-auto items-center min-h-[500px]">
+            <Image src={foto ?? "/devs.png"} alt={`Foto dev ${nome}`} height={300} width={274} className="object-cover rounded-t-lg"  />
             <h4 className="mt-4 text-2xl text-primary-text font-primary">{nome}</h4>
             <p className="text-[#5BF0F5] text-lg font-secondary text-center mt-2">{resumo}</p>
             

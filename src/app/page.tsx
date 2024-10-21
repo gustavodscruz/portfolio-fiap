@@ -102,8 +102,8 @@ export default function Page() {
       <div className="flex flex-wrap gap-4 justify-center gap-y-8">
         <Card
           nome="Gustavo"
-          resumo="Especialista em Back-End e Front-End com Java, Node.js, React.js, e Next.js. Utilizo SQL, bancos de dados variados e metodologias ágeis. Desenvolvedor full-stack!"
-          foto="https://github.com/gustavodscruz.png"
+          resumo="Java, Node.js, e Next.js. Utilizo SQL e metodologias ágeis. Dev 🦉"
+          foto="/gustavo.jpg"
           github="https://github.com/gustavodscruz"
           linkedin="https://linkedin.com/in/gustavodiasdsc"
         />
