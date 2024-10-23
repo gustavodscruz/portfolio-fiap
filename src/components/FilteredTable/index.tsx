@@ -1,43 +1,33 @@
-import { materias, Tarefa, tarefas } from "@/utils/fakelist";
+import { autores, materias, Tarefa, tarefas } from "@/utils/fakelist";
 import React, { useState } from "react";
 import { FaCheckSquare, FaFilter, FaTrash } from "react-icons/fa";
 import Section from "../MotionSection/section";
 
 const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
-  const [openDisplay, setOpenDisplay] = useState<boolean>(false);
+  const [openDisplay, setOpenDisplay] = useState({
+    autor: false,
+    materia: false,
+  });
 
-  const [selectAuthor, setSelectAuthor] = useState<boolean | Tarefa["autor"]>(
-    false
-  );
+  const [selectAuthor, setSelectAuthor] = useState<Tarefa["autor"] | false>(false);
+  const [materia, setMateria] = useState<Tarefa["materia"] | false>(false);
 
-  const [openDisplayMateria, setOpenDisplayMateria] = useState(false);
-  const [materia, setMateria] = useState<boolean | Tarefa["materia"]>(false);
-
-  const toggleDisplayMateria = () => {
-    setOpenDisplayMateria(!openDisplayMateria);
+  const toggleDisplay = (field: "autor" | "materia") => {
+    setOpenDisplay((prev) => ({ ...prev, [field]: !prev[field] }));
   };
 
-  const handleMateriaChoose = (materia: Tarefa["materia"]) => {
-    setMateria(materia);
-    setOpenDisplayMateria(false);
+  const handleChoose = (field: "autor" | "materia",value: Tarefa["autor"] | Tarefa["materia"]) => {
+    setOpenDisplay((prev) => ({ ...prev, [field]: false }));
+    if (field === "autor") return setSelectAuthor(value as Tarefa["autor"]);
+    setMateria(value as Tarefa["materia"]);
+    
   };
 
-  const clearMateriaChoose = () => {
+  const clearChoose = (field: "autor" | "materia") => {
+    setOpenDisplay((prev) => ({ ...prev, [field]: false }));
+    if (field === "autor") return setSelectAuthor(false);
     setMateria(false);
-    if (openDisplayMateria) setOpenDisplayMateria(false);
-  };
-
-  const toggleDisplay = () => {
-    setOpenDisplay(!openDisplay);
-  };
-  const handleAuthorChoose = (autor: Tarefa["autor"]) => {
-    setSelectAuthor(autor);
-    setOpenDisplay(false);
-  };
-
-  const clearAuthorChoose = () => {
-    setSelectAuthor(false);
-    if (openDisplay) setOpenDisplay(false);
+    
   };
 
   return (
@@ -45,76 +35,36 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
       <Section>
         <div
           className={`${
-            openDisplay ? "flex" : "hidden"
+            openDisplay.autor ? "flex" : "hidden"
           } bg-[#011625] w-max rounded *:text-primary-text flex-col gap-1`}
         >
-          <div
-            onClick={() => handleAuthorChoose("Gustavo Dias")}
-            className="group flex p-4 cursor-pointer min-w-40 justify-between font-primary tracking-wide text-sm gap-3 items-center hover:bg-[#022c4b] transition-all duration-300"
-          >
-            <p>Gustavo Dias</p>
-            <FaCheckSquare
-              color="#16a34a"
-              size={15}
-              className=" hidden group-hover:flex transition-colors duration-300"
-            />
-          </div>
-          <div
-            onClick={() => handleAuthorChoose("Sofia Petruk")}
-            className="group flex p-4 cursor-pointer min-w-40 justify-between font-primary tracking-wide text-sm gap-3 items-center hover:bg-[#022c4b] transition-all duration-300"
-          >
-            <p>Sofia Petruk</p>
-            <FaCheckSquare
-              color="#16a34a"
-              size={15}
-              className=" hidden group-hover:flex transition-colors duration-300"
-            />
-          </div>
-          <div
-            onClick={() => handleAuthorChoose("Felipe Ribeiro")}
-            className="group flex p-4 cursor-pointer min-w-40 justify-between font-primary tracking-wide text-sm gap-3 items-center hover:bg-[#022c4b] transition-all duration-300"
-          >
-            <p>Felipe Ribeiro</p>
-            <FaCheckSquare
-              color="#16a34a"
-              size={15}
-              className=" hidden group-hover:flex transition-colors duration-300"
-            />
-          </div>
-          <div
-            onClick={() => handleAuthorChoose("Júlia Monteiro")}
-            className="group flex p-4 cursor-pointer min-w-40 justify-between font-primary tracking-wide text-sm gap-3 items-center hover:bg-[#022c4b] transition-all duration-300"
-          >
-            <p>Júlia Monteiro</p>
-            <FaCheckSquare
-              color="#16a34a"
-              size={15}
-              className=" hidden group-hover:flex transition-colors duration-300"
-            />
-          </div>
-          <div
-            onClick={() => handleAuthorChoose("Júlia Angelozi")}
-            className="group flex p-4 cursor-pointer min-w-40 justify-between font-primary tracking-wide text-sm gap-3 items-center hover:bg-[#022c4b] transition-all duration-300"
-          >
-            <p>Júlia Angelozi</p>
-            <FaCheckSquare
-              color="#16a34a"
-              size={15}
-              className=" hidden group-hover:flex transition-colors duration-300"
-            />
-          </div>
+          {autores.map((autor, indice) => (
+            <div
+              key={indice}
+              onClick={() => handleChoose("autor", autor)}
+              className="group flex p-4 cursor-pointer min-w-40 justify-between font-primary tracking-wide text-sm gap-3 items-center hover:bg-[#022c4b] transition-all duration-300"
+            >
+              <p>{autor}</p>
+              <FaCheckSquare
+                color="#16a34a"
+                size={15}
+                className=" hidden group-hover:flex transition-colors duration-300"
+              />
+            </div>
+          ))}
         </div>
       </Section>
+
       <Section>
         <div
           className={`${
-            openDisplayMateria ? "flex" : "hidden"
+            openDisplay.materia ? "flex" : "hidden"
           } bg-[#011625] w-max rounded *:text-primary-text flex-col gap-1`}
         >
           {materias.map((materia, indice) => (
             <div
-              onClick={() => handleMateriaChoose(materia)}
               key={indice}
+              onClick={() => handleChoose("materia", materia)}
               className="group flex p-4 cursor-pointer min-w-96 justify-between font-primary tracking-wide text-sm gap-3 items-center hover:bg-[#022c4b] transition-all duration-300"
             >
               <p>{materia}</p>
@@ -127,16 +77,17 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
           ))}
         </div>
       </Section>
+
       <table className="w-full mt-8">
         <thead className="bg-[#011625]">
-          <tr className="">
-            <th className=" flex p-5 items-center gap-3">
+          <tr>
+            <th className="flex p-5 items-center gap-3">
               <p className="text-primary-text font-primary text-lg">Autor</p>
               <FaFilter
                 color="#FFF"
                 size={15}
                 className="hover:scale-125 hover:brightness-0 hover:saturate-100 hover:invert-[50%] cursor-pointer transition-all duration-300"
-                onClick={toggleDisplay}
+                onClick={() => toggleDisplay("autor")}
               />
               <FaTrash
                 color="#fff"
@@ -144,19 +95,17 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                 className={`${
                   selectAuthor ? "block" : "hidden"
                 } hover:scale-125 hover:brightness-0 hover:saturate-100 hover:invert-[50%] cursor-pointer transition-all duration-300`}
-                onClick={clearAuthorChoose}
+                onClick={() => clearChoose("autor")}
               />
             </th>
-            <th className="p-5 items-center gap-3">
-              <p className="text-primary-text font-primary text-lg">Tarefa</p>
-            </th>
-            <th className="m-auto flex p-5 items-center gap-3  justify-center">
+            <th className="p-5 text-primary-text font-primary text-lg">Tarefa</th>
+            <th className="flex p-5 items-center gap-3 justify-center">
               <p className="text-primary-text font-primary text-lg">Matéria</p>
               <FaFilter
                 color="#FFF"
                 size={15}
                 className="hover:scale-125 hover:brightness-0 hover:saturate-100 hover:invert-[50%] cursor-pointer transition-all duration-300"
-                onClick={toggleDisplayMateria}
+                onClick={() => toggleDisplay("materia")}
               />
               <FaTrash
                 color="#fff"
@@ -164,22 +113,18 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                 className={`${
                   materia ? "block" : "hidden"
                 } hover:scale-125 hover:brightness-0 hover:saturate-100 hover:invert-[50%] cursor-pointer transition-all duration-300`}
-                onClick={clearMateriaChoose}
+                onClick={() => clearChoose("materia")}
               />
             </th>
-            <th className="rounded-tr-md p-5 items-center gap-3">
-              <p className="text-primary-text font-primary text-lg">Tipo</p>
-            </th>
+            <th className="p-5 text-primary-text font-primary text-lg">Tipo</th>
           </tr>
         </thead>
-        <tbody className="bg-[#001d31] last:rounded-b-md">
+        <tbody className="bg-[#001d31]">
           {tarefas
             .filter((tarefa) => {
               const matchesTipo = tarefa.tipo.includes(tipoTarefa);
-              const matchesAuthor = selectAuthor ? tarefa.autor === selectAuthor: true;
-              const matchesMateria = materia ? tarefa.materia === materia: true;
-
-              // Retorna apenas as tarefas que satisfazem todos os filtros
+              const matchesAuthor = selectAuthor ? tarefa.autor === selectAuthor : true;
+              const matchesMateria = materia ? tarefa.materia === materia : true;
               return matchesTipo && matchesAuthor && matchesMateria;
             })
             .map((tarefa, indice) => (
