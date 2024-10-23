@@ -127,8 +127,11 @@ export default function Page() {
           linkedin="https://linkedin.com/in/julia-monteiro"
         />
           <Card
-            nome="Gustavu"
-            resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"
+            nome="Júlia Angelozi"
+            resumo="Estudante de Análise e Desenvolvimento de Sistemas"
+            foto="https://github.com/JuliaAngelozi.png"
+            github="https://github.com/JuliaAngelozi"
+            linkedin="https://linkedin.com/in/julia-angelozi"
           />
           <Card
             nome="Gustavu"
