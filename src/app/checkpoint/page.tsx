@@ -12,7 +12,7 @@ export default function Checkpoint(){
                 <div className="flex justify-between gap-4">
                     <div className="flex w-1/2 flex-col gap-4 justify-center">
                         <h1 className="text-red-custom text-6xl font-bold font-primary">
-                            Challenge
+                            Checkpoint
                         </h1>
                         <p className="text-primary-text text-xl font-medium font-secondary">
                         O checkpoint é uma avaliação projetada para testar os conhecimentos adquiridos até o 
@@ -39,7 +39,7 @@ export default function Checkpoint(){
                     Avaliações para medir seu progresso acadêmico
                     </p>
                 </div>
-                <FilteredTable tipoTarefa="Challenge" />
+                <FilteredTable tipoTarefa="Checkpoints" />
             </Section>
         </div>
     )

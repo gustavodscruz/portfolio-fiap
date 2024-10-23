@@ -39,7 +39,7 @@ export default function Challenge() {
               Como podemos ajudar o seu negócio
             </p>
           </div>
-          <FilteredTable tipoTarefa="Global Solution" />
+          <FilteredTable tipoTarefa="Challenge" />
       </Section>
     </div>
   );
