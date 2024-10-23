@@ -329,8 +329,7 @@ export const tarefas : Tarefa[] = [
             materia: "Domain Driven Design Using Java",
             tipo: "Checkpoints",
             semestre: 1,
-            nota: 9,
-            feedback: "N/A"
+            nota: 9
         },
         {
             autor: "Júlia Monteiro",
@@ -339,8 +338,7 @@ export const tarefas : Tarefa[] = [
             materia: "Domain Driven Design Using Java",
             tipo: "Checkpoints",
             semestre: 1,
-            nota: 0,
-            feedback: "N/A"
+            nota: 0
         },
         {
             autor: "Júlia Monteiro",
@@ -369,8 +367,8 @@ export const tarefas : Tarefa[] = [
             materia: "Domain Driven Design Using Java",
             tipo: "Global Solution",
             semestre: 1,
-            nota: 73,
-            feedback: ""
+            nota: 73
+           
         },
         {
             autor: "Júlia Monteiro",
@@ -379,8 +377,8 @@ export const tarefas : Tarefa[] = [
             materia: "Domain Driven Design Using Java",
             tipo: "Checkpoints",
             semestre: 2,
-            nota: 0,
-            feedback: "N/A"
+            nota: 0
+            
         },
         {
             autor: "Júlia Monteiro",
@@ -389,8 +387,7 @@ export const tarefas : Tarefa[] = [
             materia: "Domain Driven Design Using Java",
             tipo: "Checkpoints",
             semestre: 2,
-            nota: 9,
-            feedback: "N/A"
+            nota: 9
         },
         {
             autor: "Júlia Monteiro",
@@ -399,6 +396,240 @@ export const tarefas : Tarefa[] = [
             materia: "Domain Driven Design Using Java",
             tipo: "Challenge",
             semestre: 2,
+            nota: 95
+            
+        }
+        //Front-End Design Engineering
+        ,{
+            autor: "Júlia Monteiro",
+            titulo: "CP1 - Entrega",
+            descricao: "entrega checkpoint",
+            materia: "Front-End Design Engineering",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 7.5,
+            feedback: "estrutura e nomenclatura semantica nota=75"
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP2 - Entrega",
+            descricao: "segundo checkpoint",
+            materia: "Front-End Design Engineering",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 10,
+            feedback: "A estrutura está legal, mas faltou atenção em alguns momentos, por exemplo quando vamos examinar seu chatBot, não é possível voltar, tem que fazer isso pelo Navegador."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP3 - Entrega",
+            descricao: "terceiro checkpoint",
+            materia: "Front-End Design Engineering",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 7.5,
+            feedback: "- Contexto: Foi utilizado texto lorem em um projeto real. Qual função da página chat? Esta página quando acessada é impossível retornar para a página inicial. Ela abre em uma nova aba sendo um link interno ao sistema, sem necessidade e não deixa opções de retorno. (-10)"
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint1 - Entrega",
+            descricao: "primeira sprint",
+            tipo: "Challenge",
+            semestre: 1,
+            nota: 60,
+            materia: "Front-End Design Engineering"
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint2 - Entrega",
+            descricao: "",
+            materia: "Front-End Design Engineering",
+            tipo: "Challenge",
+            semestre: 1,
+            nota: 55
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Global Solution - 1º Semestre",
+            descricao: "entrega de Global Solution",
+            materia: "Front-End Design Engineering",
+            tipo: "Global Solution",
+            semestre: 1,
+            nota: 60
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP4 - Entrega",
+            descricao: "Feedback: N/A.",
+            materia: "Front-End Design Engineering",
+            tipo: "Checkpoints",
+            semestre: 2,
+            nota: 3.5
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP5 - Entrega",
+            descricao: "",
+            materia: "Front-End Design Engineering",
+            tipo: "Checkpoints",
+            semestre: 2,
+            nota: 8.5,
+            feedback: "Estrutura e organização do projeto (20 pontos): 220 Implementação de rotas e rotas dinâmicas (30 pontos): 20 Página de erro personalizada (10 pontos): 10 Endpoints do projeto (30 pontos): 25 Colaboração e versionamento (10 pontos): 10"
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint3 - Entrega",
+            descricao: "",
+            materia: "Front-End Design Engineering",
+            tipo: "Challenge",
+            semestre: 2,
+            nota: 80,
+            feedback: "Existem erros semanticos não observados no projeto."
+        }
+        //Software Engineering and Business Model
+        ,{
+            autor: "Júlia Monteiro",
+            titulo: "CP1 - Entrega",
+            descricao: "entrega checkpoint",
+            materia: "Software Engineering and Business Model",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 9.5,
+            feedback: "Feedback ao vivo"
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP2 - Entrega",
+            descricao: "segundo checkpoint",
+            materia: "Software Engineering and Business Model",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 9.5
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP3 - Entrega",
+            descricao: "terceiro checkpoint",
+            materia: "Software Engineering and Business Model",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 0
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint1 - Entrega",
+            descricao: "primeira sprint",
+            tipo: "Challenge",
+            semestre: 1,
+            nota: 93,
+            materia: "Software Engineering and Business Model"
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint2 - Entrega",
+            descricao: "entrega segunda sprint",
+            materia: "Software Engineering and Business Model",
+            tipo: "Challenge",
+            semestre: 1,
+            nota: 97,
+            feedback: "Backlog excepcional! Descrição excelente. Pitch ótimo. Matriz CSD legal. Diagrama bem legal algumas questões mas no geral muito bom."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Global Solution - 1º Semestre",
+            descricao: "entrega Global solution",
+            materia: "Software Engineering and Business Model",
+            tipo: "Global Solution",
+            semestre: 1,
+            nota: 95
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP4 - Entrega",
+            descricao: "quarto checkpoint",
+            materia: "Software Engineering and Business Model",
+            tipo: "Checkpoints",
+            semestre: 2,
+            nota: 9,
+            feedback: "Não traz sobre a tela de erro do Ifood que não informa sobre qual é o erro. As primeiras heurísticas têm mais coisas que poderiam ter sido detalhadas."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP5 - Entrega",
+            descricao: "quinto checkpoint",
+            materia: "Software Engineering and Business Model",
+            tipo: "Checkpoints",
+            semestre: 2,
+            nota: 8,
+            feedback: "No seu diagrama de atividades faltaram as formas de entrega."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint3 - Entrega",
+            descricao: "",
+            materia: "Software Engineering and Business Model",
+            tipo: "Challenge",
+            semestre: 2,
+            nota: 100,
+            feedback: "Os diagramas de vocês estão OK. O protótipo está legal! Backlog ok. Parabéns 10/10."
+        }
+        //Computational Thinking Using Python
+        ,{
+            autor: "Júlia Monteiro",
+            titulo: "CP1 - Entrega",
+            descricao: "entrega checkpoint",
+            materia: "Computational Thinking Using Python",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 9,
+            feedback: "Exe1 (4,5) - Faltou somar as comissões com o salário fixo. Exe2 (4,5) - Fluxograma - o teste composto deve ser realizado com a variável em todas as partes | não possui inicio e fim - cálculo não realizado."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP2 - Entrega",
+            descricao: "segundo checkpoint",
+            materia: "Computational Thinking Using Python",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 7,
+            feedback: "Exe1(4,0) - não há necessidade de implementar uma estrutura de repetição para executar uma única vez | condição de parada não atende ao solicitado | lógica ok. Exe2(3,0) poderiam ter utilizado o mesmo laço para captar as informações, pois possuem a mesma lógica | Programa todo sequencial, sem aplicação de condições e repetição."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP3 - Entrega",
+            descricao: "terceiro checkpoint",
+            materia: "Computational Thinking Using Python",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 8
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint1 - Entrega",
+            descricao: "primeira sprint",
+            tipo: "Challenge",
+            semestre: 1,
+            nota: 95,
+            feedback: "Aplicações dos conceitos vistos em aula - Muito bom! de acordo com o solicitado | validação ok.",
+            materia: "Computational Thinking Using Python"
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint2 - Entrega",
+            descricao: "",
+            materia: "Computational Thinking Using Python",
+            tipo: "Challenge",
+            semestre: 1,
+            nota: 40,
+            feedback: "Pouca evolução da Sprint 1. Não foram encontradas explicações sobre os pontos de melhorias e/ou fluxograma."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Global Solution - 1º Semestre",
+            descricao: "entrega global solution",
+            materia: "Computational Thinking Using Python",
+            tipo: "Global Solution",
+            semestre: 1,
             nota: 95,
             feedback: "N/A"
         }
