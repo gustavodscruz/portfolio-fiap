@@ -138,8 +138,11 @@ export default function Page() {
             resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"
           />
           <Card
-            nome="Gustavu"
-            resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"
+            nome="Sofia Petruk"
+            resumo="Estudante de Análise e desnvolvimento de sistema, querendo a área backend na linguagens Java, Python, SQL"
+            foto="https://github.com/sofiapetruk.png"
+            github="https://github.com/sofiapetruk"
+            linkedin="https://www.linkedin.com/in/sofia-petruk-133698317/"
           />
         </div>
       </Section>
