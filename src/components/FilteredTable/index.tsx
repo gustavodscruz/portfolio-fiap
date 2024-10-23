@@ -1,26 +1,44 @@
-import { Tarefa, tarefas } from "@/utils/fakelist";
+import { materias, Tarefa, tarefas } from "@/utils/fakelist";
 import React, { useState } from "react";
 import { FaCheckSquare, FaFilter, FaTrash } from "react-icons/fa";
 import Section from "../MotionSection/section";
 
-const FilteredTable = ({tipoTarefa} : {tipoTarefa : Tarefa['tipo']} ) => {
-  const [openDisplay, setOpenDisplay] = useState(false);
+const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
+  const [openDisplay, setOpenDisplay] = useState<boolean>(false);
+
+  const [selectAuthor, setSelectAuthor] = useState<boolean | Tarefa["autor"]>(
+    false
+  );
+
+  const [openDisplayMateria, setOpenDisplayMateria] = useState(false);
+  const [materia, setMateria] = useState<boolean | Tarefa["materia"]>(false);
+
+  const toggleDisplayMateria = () => {
+    setOpenDisplayMateria(!openDisplayMateria);
+  };
+
+  const handleMateriaChoose = (materia: Tarefa["materia"]) => {
+    setMateria(materia);
+    setOpenDisplayMateria(false);
+  };
+
+  const clearMateriaChoose = () => {
+    setMateria(false);
+    if (openDisplayMateria) setOpenDisplayMateria(false);
+  };
 
   const toggleDisplay = () => {
     setOpenDisplay(!openDisplay);
   };
   const handleAuthorChoose = (autor: Tarefa["autor"]) => {
     setSelectAuthor(autor);
+    setOpenDisplay(false);
   };
 
   const clearAuthorChoose = () => {
     setSelectAuthor(false);
     if (openDisplay) setOpenDisplay(false);
   };
-
-  const [selectAuthor, setSelectAuthor] = useState<boolean | Tarefa["autor"]>(
-    false
-  );
 
   return (
     <>
@@ -87,6 +105,28 @@ const FilteredTable = ({tipoTarefa} : {tipoTarefa : Tarefa['tipo']} ) => {
           </div>
         </div>
       </Section>
+      <Section>
+        <div
+          className={`${
+            openDisplayMateria ? "flex" : "hidden"
+          } bg-[#011625] w-max rounded *:text-primary-text flex-col gap-1`}
+        >
+          {materias.map((materia, indice) => (
+            <div
+              onClick={() => handleMateriaChoose(materia)}
+              key={indice}
+              className="group flex p-4 cursor-pointer min-w-96 justify-between font-primary tracking-wide text-sm gap-3 items-center hover:bg-[#022c4b] transition-all duration-300"
+            >
+              <p>{materia}</p>
+              <FaCheckSquare
+                color="#16a34a"
+                size={15}
+                className=" hidden group-hover:flex transition-colors duration-300"
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
       <table className="w-full mt-8">
         <thead className="bg-[#011625]">
           <tr className="">
@@ -110,8 +150,22 @@ const FilteredTable = ({tipoTarefa} : {tipoTarefa : Tarefa['tipo']} ) => {
             <th className="p-5 items-center gap-3">
               <p className="text-primary-text font-primary text-lg">Tarefa</p>
             </th>
-            <th className="p-5 items-center gap-3">
+            <th className="m-auto flex p-5 items-center gap-3  justify-center">
               <p className="text-primary-text font-primary text-lg">Matéria</p>
+              <FaFilter
+                color="#FFF"
+                size={15}
+                className="hover:scale-125 hover:brightness-0 hover:saturate-100 hover:invert-[50%] cursor-pointer transition-all duration-300"
+                onClick={toggleDisplayMateria}
+              />
+              <FaTrash
+                color="#fff"
+                size={15}
+                className={`${
+                  materia ? "block" : "hidden"
+                } hover:scale-125 hover:brightness-0 hover:saturate-100 hover:invert-[50%] cursor-pointer transition-all duration-300`}
+                onClick={clearMateriaChoose}
+              />
             </th>
             <th className="rounded-tr-md p-5 items-center gap-3">
               <p className="text-primary-text font-primary text-lg">Tipo</p>
@@ -119,28 +173,16 @@ const FilteredTable = ({tipoTarefa} : {tipoTarefa : Tarefa['tipo']} ) => {
           </tr>
         </thead>
         <tbody className="bg-[#001d31] last:rounded-b-md">
-          {tarefas.map((tarefa, indice) =>
-            selectAuthor ? (
-              tarefa.tipo.includes(tipoTarefa) &&
-              tarefa.autor == selectAuthor ? (
-                <tr key={indice}>
-                  <td className="p-5 text-primary-text font-secondary font-light text-left border-b border-[#1b3040]">
-                    {tarefa.autor}
-                  </td>
-                  <td className="p-5 text-primary-text font-secondary font-light text-center border-b border-[#1b3040]">
-                    {tarefa.titulo}
-                  </td>
-                  <td className="p-5 text-primary-text font-secondary font-light text-center border-b border-[#1b3040]">
-                    {tarefa.materia}
-                  </td>
-                  <td className="p-5 text-primary-text font-secondary font-light text-center border-b border-[#1b3040]">
-                    {tarefa.tipo}
-                  </td>
-                </tr>
-              ) : (
-                ""
-              )
-            ) : tarefa.tipo.includes(tipoTarefa) ? (
+          {tarefas
+            .filter((tarefa) => {
+              const matchesTipo = tarefa.tipo.includes(tipoTarefa);
+              const matchesAuthor = selectAuthor ? tarefa.autor === selectAuthor: true;
+              const matchesMateria = materia ? tarefa.materia === materia: true;
+
+              // Retorna apenas as tarefas que satisfazem todos os filtros
+              return matchesTipo && matchesAuthor && matchesMateria;
+            })
+            .map((tarefa, indice) => (
               <tr key={indice}>
                 <td className="p-5 text-primary-text font-secondary font-light text-left border-b border-[#1b3040]">
                   {tarefa.autor}
@@ -155,10 +197,7 @@ const FilteredTable = ({tipoTarefa} : {tipoTarefa : Tarefa['tipo']} ) => {
                   {tarefa.tipo}
                 </td>
               </tr>
-            ) : (
-              ""
-            )
-          )}
+            ))}
         </tbody>
       </table>
     </>

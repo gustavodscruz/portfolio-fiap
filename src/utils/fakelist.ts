@@ -1,7 +1,11 @@
+export const materias = ["Artificial Intelligence and Chatbot", "Domain Driven Design Using Java", "Computational Thinking Using Python", "Software Engineering and Business Model", "Building Relational Database", "Front-End Design Engineering"] as const
+
+export type Materia = typeof materias[number]
+
 export type Tarefa = {
     autor : "Gustavo Dias" | "Júlia Monteiro" | "Júlia Angelozi" | "Felipe Ribeiro" | "Sofia Petruk", 
     titulo : string,
-    materia : "Artificial Intelligence and Chatbot" | "Domain Driven Design Using Java" | "Computational Thinking Using Python" | "Software Engineering and Business Model" | "Building Relational Database" | "Front-End Design Engineering", 
+    materia : Materia, 
     tipo : "Challenge" | "Global Solution" | "Checkpoints",
     descricao : string,
     foto? : string ,
