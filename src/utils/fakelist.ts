@@ -574,7 +574,64 @@ export const tarefas : Tarefa[] = [
             feedback: "Os diagramas de vocês estão OK. O protótipo está legal! Backlog ok. Parabéns 10/10."
         }
         //Computational Thinking Using Python
-        
+        ,{
+            autor: "Júlia Monteiro",
+            titulo: "CP1 - Entrega",
+            descricao: "entrega checkpoint",
+            materia: "Computational Thinking Using Python",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 9,
+            feedback: "Exe1 (4,5) - Faltou somar as comissões com o salário fixo. Exe2 (4,5) - Fluxograma - o teste composto deve ser realizado com a variável em todas as partes | não possui inicio e fim - cálculo não realizado."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP2 - Entrega",
+            descricao: "segundo checkpoint",
+            materia: "Computational Thinking Using Python",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 7,
+            feedback: "Exe1(4,0) - não há necessidade de implementar uma estrutura de repetição para executar uma única vez | condição de parada não atende ao solicitado | lógica ok. Exe2(3,0) poderiam ter utilizado o mesmo laço para captar as informações, pois possuem a mesma lógica | Programa todo sequencial, sem aplicação de condições e repetição."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "CP3 - Entrega",
+            descricao: "terceiro checkpoint",
+            materia: "Computational Thinking Using Python",
+            tipo: "Checkpoints",
+            semestre: 1,
+            nota: 8
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint1 - Entrega",
+            descricao: "primeira sprint",
+            tipo: "Challenge",
+            semestre: 1,
+            nota: 95,
+            feedback: "Aplicações dos conceitos vistos em aula - Muito bom! de acordo com o solicitado | validação ok.",
+            materia: "Computational Thinking Using Python"
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Sprint2 - Entrega",
+            descricao: "",
+            materia: "Computational Thinking Using Python",
+            tipo: "Challenge",
+            semestre: 1,
+            nota: 40,
+            feedback: "Pouca evolução da Sprint 1. Não foram encontradas explicações sobre os pontos de melhorias e/ou fluxograma."
+        },
+        {
+            autor: "Júlia Monteiro",
+            titulo: "Global Solution - 1º Semestre",
+            descricao: "entrega global solution",
+            materia: "Computational Thinking Using Python",
+            tipo: "Global Solution",
+            semestre: 1,
+            nota: 95
+        }
 
     ];
 
