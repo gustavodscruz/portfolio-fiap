@@ -388,7 +388,6 @@ export const tarefas : Tarefa[] = [
             tipo: "Checkpoints",
             semestre: 2,
             nota: 9
-            
         },
         {
             autor: "Júlia Monteiro",
@@ -632,38 +631,8 @@ export const tarefas : Tarefa[] = [
             tipo: "Global Solution",
             semestre: 1,
             nota: 95,
-            feedback:"Explicação muito “rápida” - acabou ficando um pouco confuso! Poderiam ter explorado mais a identificação do problema e solução proposta. Código fonte => Código muito bem organizado e estruturado - Parabéns pela entrega! Utilizaram estruturas de dados de forma correta… validação de dados ok… excelente!"
-        },
-        {
-            autor: "Júlia Monteiro",
-            titulo: "CP4 - Entrega",
-            descricao: "entrega do quarto cp",
-            materia: "Computational Thinking Using Python",
-            tipo: "Checkpoints",
-            semestre: 2,
-            nota: 0
-        },
-        {
-            autor: "Júlia Monteiro",
-            titulo: "CP5 - Entrega",
-            descricao: "entrega do quinto cp",
-            materia: "Computational Thinking Using Python",
-            tipo: "Checkpoints",
-            semestre: 2,
-            nota: 6.5,
-            feedback: "(3,5) Programa Python + 4 algoritmos - implementado com dois arquivos | a simulação deveria ter diferentes arquivos com diferentes tamanhos de listas - apenas um arquivo foi encontrado. (3,0) Relatório + gráficos - algoritmos não foram especificados | gráficos ok - porém, a tabela final ficou incompleta - simulação não realizada 100%. O documento está bem organizado - poderiam ter trabalhado mais no relatório."
-        },
-        {
-            autor: "Júlia Monteiro",
-            titulo: "Sprint3 - Entrega",
-            descricao: "Entrega terceira sprint",
-            materia: "Computational Thinking Using Python",
-            tipo: "Challenge",
-            semestre: 2,
-            nota: 85,
-            feedback: "Parabéns pela entrega e explicação do código. Ficou muito bom."
+            feedback: "N/A"
         }
-
 
     ];
 
