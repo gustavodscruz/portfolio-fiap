@@ -13,6 +13,7 @@ export default function Header(){
                     <Link className="text-primary-text font-primary" href="/checkpoint">Checkpoint</Link>
                     <Link className="text-primary-text font-primary" href="/challenge">Challenge Sprints</Link>
                     <Link className="text-primary-text font-primary" href="/global-solution">Global Solution</Link>
+                    <Link className="text-primary-text font-primary" href="/*"></Link>
                 </div>
             </nav>
         </header>

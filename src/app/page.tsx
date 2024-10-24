@@ -120,12 +120,18 @@ export default function Page() {
             linkedin="https://linkedin.com/in/gustavodiasdsc"
           />
           <Card
-            nome="Gustavu"
-            resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"
-          />
+          nome="Julia Monteiro"
+          resumo="Estudante de Análise e desnvolvimento de sistema"
+          foto="https://github.com/jliamonteiro.png"
+          github="https://github.com/jliamonteiro"
+          linkedin="https://linkedin.com/in/julia-monteiro"
+        />
           <Card
-            nome="Gustavu"
-            resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"
+            nome="Júlia Angelozi"
+            resumo="Estudante de Análise e Desenvolvimento de Sistemas"
+            foto="https://github.com/JuliaAngelozi.png"
+            github="https://github.com/JuliaAngelozi"
+            linkedin="https://linkedin.com/in/julia-angelozi"
           />
           <Card
           nome="Felipe"
@@ -135,8 +141,11 @@ export default function Page() {
           linkedin="https://www.linkedin.com/in/felipe-ribeiro-tardochi-da-silva-112b712b5/"
         />
           <Card
-            nome="Gustavu"
-            resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"
+            nome="Sofia Petruk"
+            resumo="Estudante de Análise e desnvolvimento de sistema, querendo a área backend na linguagens Java, Python, SQL"
+            foto="https://github.com/sofiapetruk.png"
+            github="https://github.com/sofiapetruk"
+            linkedin="https://www.linkedin.com/in/sofia-petruk-133698317/"
           />
         </div>
       </Section>
