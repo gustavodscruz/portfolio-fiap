@@ -115,7 +115,7 @@ export default function Page() {
           <Card
             nome="Gustavo"
             resumo="Java, Node.js, e Next.js. Utilizo SQL e metodologias ágeis. Dev 🦉"
-            foto="/gustavo.jpg"
+            foto="/gustavo-foto.jpg"
             github="https://github.com/gustavodscruz"
             linkedin="https://linkedin.com/in/gustavodiasdsc"
           />
