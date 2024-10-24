@@ -15,10 +15,7 @@ export default function Challenge() {
                 Challenge
               </h1>
               <p className="text-primary-text text-xl font-medium font-secondary">
-                Como a Inteligência Artificial pode auxiliar no diagnóstico de
-                problemas veiculares? Diante desse desafio, utilizamos várias
-                ferramentas, tecnologias e linguagens para lidar com situações
-                ocorrentes no setor automobilístico. Veja mais!
+              O challenge é uma forma de avaliação em que os alunos desenvolvem, ao longo do ano, um projeto proposto por uma empresa. Com dois entregáveis ​​por semestre, o projeto envolve todas as disciplinas, permitindo que os alunos apliquem conhecimentos de forma prática e integrada. Essa abordagem multidisciplinar incentiva a colaboração e a resolução de problemas, conectando teoria e prática, e oferecendo uma experiência comprovada às demandas do mercado.
               </p>
             </div>
             <Image
@@ -33,10 +30,10 @@ export default function Challenge() {
       <Section>
           <div className="flex flex-col gap-4 m-auto mt-8">
             <h2 className="text-red-custom text-3xl font-bold font-primary text-center">
-              Nossos serviços
+              Nossas Challenge Sprints
             </h2>
             <p className="text-primary-text text-xl font-medium font-secondary text-center">
-              Como podemos ajudar o seu negócio
+              Desenvolvendo aplicações para empresas
             </p>
           </div>
           <FilteredTable tipoTarefa="Challenge" />
