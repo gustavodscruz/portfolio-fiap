@@ -134,9 +134,12 @@ export default function Page() {
             linkedin="https://linkedin.com/in/julia-angelozi"
           />
           <Card
-            nome="Gustavu"
-            resumo="Bão demais e lindo, e viado (segundo a Júlia Angelozi, rm 98888"
-          />
+          nome="Felipe"
+          resumo="Estudante de Análise e Desenvolvimento de Sistemas - FIAP"
+          foto="https://github.com/cotete.png"
+          github="https://github.com/cotete"
+          linkedin="https://www.linkedin.com/in/felipe-ribeiro-tardochi-da-silva-112b712b5/"
+        />
           <Card
             nome="Sofia Petruk"
             resumo="Estudante de Análise e desnvolvimento de sistema, querendo a área backend na linguagens Java, Python, SQL"
