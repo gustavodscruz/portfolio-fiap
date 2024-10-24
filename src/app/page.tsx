@@ -103,7 +103,7 @@ export default function Page() {
         </div>
       </Section>
       <Section>
-        <div className="flex flex-col gap-4 items-center mt-8">
+        <div className="flex flex-col gap-4 items-center mt-8 mb-8">
           <h2 className="text-primary-text text-3xl font-bold font-primary">
             &lt;Nossos
           </h2>
