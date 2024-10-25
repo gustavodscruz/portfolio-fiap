@@ -1,13 +1,18 @@
-import { autores, materias, Tarefa, tarefas } from "@/utils/tarefas";
-import React, { useState } from "react";
+import { autores, materias, Tarefa} from "@/utils/tarefas";
+import React, { useEffect, useState } from "react";
 import { FaCheckSquare, FaFilter, FaTrash } from "react-icons/fa";
 import Section from "../MotionSection/section";
+import { BiEdit } from "react-icons/bi";
+import { MdAddBox, MdDelete } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
   const [openDisplay, setOpenDisplay] = useState({
     autor: false,
     materia: false,
   });
+
+  const navigate = useRouter()
 
   const [selectAuthor, setSelectAuthor] = useState<Tarefa["autor"] | false>(false);
   const [materia, setMateria] = useState<Tarefa["materia"] | false>(false);
@@ -29,6 +34,31 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
     setMateria(false);
     
   };
+
+  const [tarefas, setTarefas] = useState<Tarefa[] | null>(null)
+  const handleTarefas = async() => {
+    try{
+      const response = await fetch('http://localhost:3000/api/tarefa/')
+      if (!response.ok){
+        throw new Error ("Não foi possível recuperar as tarefas!")
+      }
+      const data : Tarefa[] = await response.json()
+      setTarefas(data)
+    }
+    catch(error){
+      console.error("Erro: " + error)
+      setTarefas(null)
+    }
+  }
+
+  useEffect(() => {
+    handleTarefas()
+  }, [])
+
+  const addTarefa = () => {
+      navigate.push('http://localhost:3000/adicionar-tarefa/')
+  }
+  
 
   return (
     <>
@@ -78,9 +108,9 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
         </div>
       </Section>
 
-      <table className="w-full mt-8">
+      <table className="w-full mt-8 border-[#011625] border-8">
         <thead className="bg-[#011625]">
-          <tr>
+          <tr className="border-b border-[#1b3040]">
             <th className="flex p-5 items-center gap-3">
               <p className="text-primary-text font-primary text-lg">Autor</p>
               <FaFilter
@@ -117,10 +147,16 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
               />
             </th>
             <th className="p-5 text-primary-text font-primary text-lg">Tipo</th>
+            <th className=" text-primary-text font-primary text-lg flex p-5 items-center gap-3 justify-center">Ações
+              <MdAddBox color="#d6d9df" size={30} className="hover:scale-110 cursor-pointer transition-all duration-300" onClick={addTarefa}/>
+            </th>
+          
           </tr>
         </thead>
         <tbody className="bg-[#001d31]">
-          {tarefas
+          {
+          tarefas ?
+          (tarefas
             .filter((tarefa) => {
               const matchesTipo = tarefa.tipo.includes(tipoTarefa);
               const matchesAuthor = selectAuthor ? tarefa.autor === selectAuthor : true;
@@ -129,20 +165,30 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
             })
             .map((tarefa, indice) => (
               <tr key={indice}>
-                <td className="p-5 text-primary-text font-secondary font-light text-left border-b border-[#1b3040]">
+                <td className="p-5 text-primary-text font-secondary font-light text-left ">
                   {tarefa.autor}
                 </td>
-                <td className="p-5 text-primary-text font-secondary font-light text-center border-b border-[#1b3040]">
+                <td className="p-5 text-primary-text font-secondary font-light text-center ">
                   {tarefa.titulo}
                 </td>
-                <td className="p-5 text-primary-text font-secondary font-light text-center border-b border-[#1b3040]">
+                <td className="p-5 text-primary-text font-secondary font-light text-center ">
                   {tarefa.materia}
                 </td>
-                <td className="p-5 text-primary-text font-secondary font-light text-center border-b border-[#1b3040]">
+                <td className="p-5 text-primary-text font-secondary font-light text-center ">
                   {tarefa.tipo}
                 </td>
+                <td className="p-5 text-primary-text font-secondary font-light text-center  flex justify-evenly items-center w-full h-full ">
+                  <BiEdit size={30} className="hover:scale-125 cursor-pointer transition-all duration-300 " color="#4300ff"/>
+                  <MdDelete size={30} className="hover:scale-125 cursor-pointer transition-all duration-300 " color="#a43400"/>
+                </td>
+          
               </tr>
-            ))}
+            ))) :(
+              <td colSpan={6} className="p-5 text-primary-text font-secondary font-light text-left border-b border-[#1b3040] w-full m-auto">
+                  <p className="text-center">Não foi possível ver as tarefas!</p>
+              </td>
+            )   
+            }
         </tbody>
       </table>
     </>

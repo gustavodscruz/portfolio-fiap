@@ -1,4 +1,3 @@
-"use client"
 import Card from "@/components/CardMembro/cardmembro";
 import Section from "@/components/MotionSection/section";
 import Image from "next/image";

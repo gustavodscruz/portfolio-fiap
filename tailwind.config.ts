@@ -10,12 +10,11 @@ const config: Config = {
       colors: {
         "primary-text" : "#E2E4E9",
         background: "#262955",
-        foreground: "var(--foreground)",
         "red-custom": "#D7606D",
       },
       fontFamily: {
-        'primary': ['Inconsolata, sans-serif'],
-        'secondary': ['Epilogue, Arial'],
+        primary: "var(--primary), sans-serif",
+        secondary: "var(--secondary), sans-serif",
       }
     },
   },

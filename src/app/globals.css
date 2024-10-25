@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'Inconsolata';
-    src: url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
-}
-
-@font-face {
-    font-family: 'Epilogue';
-    src: url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inconsolata:wght@200..900&display=swap');
-}
-
 
   
 
