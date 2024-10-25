@@ -1,18 +1,26 @@
+"use client"
+
 import Card from "@/components/CardMembro/cardmembro";
 import Section from "@/components/MotionSection/section";
 import Image from "next/image";
 import Link from "next/link";
+import Typewriter from 'typewriter-effect';
 
 
 export default function Page() {
- 
   return (
     <div className="flex flex-col gap-5 p-4 w-full m-auto">
       <Section>
         <div className="flex justify-between w-full m-auto ">
           <div className="flex m-auto justify-start w-1/2">
             <h1 className="text-primary-text text-6xl font-secondary">
-              Seja bem-vindo ao <span className="text-red-custom">nosso portfólio</span>
+              Seja bem-vindo ao <span className="text-red-custom">
+                <Typewriter options={{
+                  strings: ['nosso portfólio', 'Dev Repository'],
+                  autoStart: true,
+                  loop: true
+                }}/>
+              </span>
             </h1>
             
           </div>
