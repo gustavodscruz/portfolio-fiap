@@ -11,8 +11,8 @@ export default function Page() {
       <Section>
         <div className="flex justify-between w-full m-auto ">
           <div className="flex m-auto justify-start w-1/2">
-            <h1 className="text-primary-text text-3xl">
-              Seja bem-vindo ao nosso portfólio
+            <h1 className="text-primary-text text-6xl font-secondary">
+              Seja bem-vindo ao <span className="text-red-custom">nosso portfólio</span>
             </h1>
             
           </div>
