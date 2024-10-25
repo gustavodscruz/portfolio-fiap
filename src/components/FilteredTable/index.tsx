@@ -1,4 +1,4 @@
-import { autores, materias, Tarefa, tarefas } from "@/utils/fakelist";
+import { autores, materias, Tarefa, tarefas } from "@/utils/tarefas";
 import React, { useState } from "react";
 import { FaCheckSquare, FaFilter, FaTrash } from "react-icons/fa";
 import Section from "../MotionSection/section";
