@@ -6,10 +6,7 @@ import Link from "next/link";
 
 
 export default function Page() {
-  const makeJson = async () => {
-    const response = await fetch('localhost:3000/api/tarefa')
-    console.log(response) 
-  }
+ 
   return (
     <div className="flex flex-col gap-5 p-4 w-full m-auto">
       <Section>
@@ -18,9 +15,7 @@ export default function Page() {
             <h1 className="text-primary-text text-3xl">
               Seja bem-vindo ao nosso portfólio
             </h1>
-            <button className="rounded-md bg-purple-400 p-5 text-white text-xl"
-            onClick={() => makeJson}
-            >Clique-me</button>
+            
           </div>
           <div className="flex m-auto justify-center w-1/2">
             <Image
