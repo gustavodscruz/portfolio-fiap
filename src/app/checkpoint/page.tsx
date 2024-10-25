@@ -3,6 +3,7 @@
 import FilteredTable from "@/components/FilteredTable";
 import Section from "@/components/MotionSection/section";
 import Image from "next/image";
+import Typewriter from 'typewriter-effect';
 
 
 export default function Checkpoint(){
@@ -12,7 +13,12 @@ export default function Checkpoint(){
                 <div className="flex justify-between gap-4">
                     <div className="flex w-1/2 flex-col gap-4 justify-center">
                         <h1 className="text-red-custom text-6xl font-bold font-primary">
-                            Checkpoint
+                            <Typewriter options={{
+                                strings:['Checkpoint'],
+                                autoStart: true,
+                                loop: true,
+                                delay: 50
+                            }} />
                         </h1>
                         <p className="text-primary-text text-xl font-medium font-secondary">
                         O checkpoint é uma avaliação projetada para testar os conhecimentos adquiridos até o 
@@ -26,7 +32,7 @@ export default function Checkpoint(){
                     alt="Imagem que mostra um gif de um menino escrevendo no computador"
                     height={1040}
                     width={1040}
-                    className="size-[400px] object-contain border-4 border-red-custom rounded-md bg-red-100 max-w-1/2 m-auto"
+                    className="h-[400px] w-[580px] object-cover border-4 border-red-custom rounded-md bg-red-100 max-w-1/2 m-auto"
                     />
                 </div>
             </Section>

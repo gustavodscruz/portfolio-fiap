@@ -16,15 +16,11 @@ export async function GET(request: Request, { params }: { params: { id: number }
 export async function DELETE(request: Request, { params }: { params: { id: number } }) {
     try {
         const file = await fs.readFile(process.cwd() + '/src/data/base.json', 'utf-8');
-        const tarefas: Tarefa[] = JSON.parse(file);
-
+        const tarefas: Tarefa[] = await JSON.parse(file);
         const idTarefa = tarefas.findIndex(t => t.id == params.id);
         tarefas.splice(idTarefa, 1);
-
-
         const fileUpdate = JSON.stringify(tarefas);
         await fs.writeFile(process.cwd() + '/src/data/base.json', fileUpdate);
-
         return NextResponse.json({ msg: "Tarefa removido com sucesso!" });
     } catch (error) {
         return NextResponse.json({ error: "Erro ao excluir tarefa!: " + error });

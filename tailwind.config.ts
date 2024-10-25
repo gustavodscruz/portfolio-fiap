@@ -11,6 +11,8 @@ const config: Config = {
         "primary-text" : "#E2E4E9",
         background: "#262955",
         "red-custom": "#D7606D",
+        "purple-custom-1": "#8d48f9",
+        "pink-custom-1":"#ec4899"
       },
       fontFamily: {
         primary: "var(--primary), sans-serif",
