@@ -1,6 +1,7 @@
 "use client"
 
 import Card from "@/components/CardMembro/cardmembro";
+import Dashboard from "@/components/Dashboard";
 import Section from "@/components/MotionSection/section";
 import Image from "next/image";
 import Link from "next/link";
@@ -111,10 +112,11 @@ export default function Page() {
           <p className="text-primary-text text-xl font-medium font-secondary">
             Uma pequena amostra
           </p>
+          <Dashboard />
         </div>
       </Section>
       <Section>
-        <div className="flex flex-col gap-4 items-center mt-8 mb-8">
+        <div className="flex flex-col gap-4 items-center mt-28 mb-8">
           <h2 className="text-primary-text text-3xl font-bold font-primary">
             &lt;Nossos
           </h2>
