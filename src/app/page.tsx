@@ -3,7 +3,9 @@ import Section from "@/components/MotionSection/section";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function Page() {
+ 
   return (
     <div className="flex flex-col gap-5 p-4 w-full m-auto">
       <Section>
@@ -12,6 +14,7 @@ export default function Page() {
             <h1 className="text-primary-text text-3xl">
               Seja bem-vindo ao nosso portfólio
             </h1>
+            
           </div>
           <div className="flex m-auto justify-center w-1/2">
             <Image
@@ -103,7 +106,7 @@ export default function Page() {
         </div>
       </Section>
       <Section>
-        <div className="flex flex-col gap-4 items-center mt-8">
+        <div className="flex flex-col gap-4 items-center mt-8 mb-8">
           <h2 className="text-primary-text text-3xl font-bold font-primary">
             &lt;Nossos
           </h2>
