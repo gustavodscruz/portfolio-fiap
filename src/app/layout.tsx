@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 
 const spaceGrotesk = localFont({
   src: "../font/SpaceGrotesk.ttf",
-  variable: "--secondary",
+  variable: "--primary",
   weight: "100 900"
 })
 
 const epilogue = localFont({
   src: "../font/Epilogue.ttf",
-  variable: "--primary",
+  variable: "--secondary",
   weight: "100 900"
 })
 
