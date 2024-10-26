@@ -83,6 +83,8 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
     }
   };
 
+
+
   return (
     <>
       <div className={`${displayModal ? 'block' : 'hidden'}`}>
