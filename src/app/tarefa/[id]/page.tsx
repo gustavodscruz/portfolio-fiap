@@ -115,13 +115,13 @@ export default function EditTarefa({ params }: { params: { id: number } }) {
           <div className="flex gap-4">
 
             <div className="flex gap-2">
-              <input type="radio" name="semestre" onChange={e=>setTarefa({...tarefa,semestre: 1})} className='text-primary-text w-6' value={"1º Semestre"} id="semestreChoice1" />
+              <input type="radio" name="semestre" onChange={() => setTarefa({...tarefa,semestre: 1})} className='text-primary-text w-6' value={"1º Semestre"} id="semestreChoice1" />
               <label htmlFor="semestreChoice1" className='text-white'>
                 1º Semestre
               </label>
             </div>
             <div className="flex gap-2">
-              <input type="radio" name="semestre" onChange={e=>setTarefa({...tarefa,semestre: 2})} className='text-primary-text' value={"2º Semestre"} id="semestreChoice2" />
+              <input type="radio" name="semestre" onChange={() => setTarefa({...tarefa,semestre: 2})} className='text-primary-text' value={"2º Semestre"} id="semestreChoice2" />
               <label htmlFor="semestreChoice2" className='text-white'>
                 2º Semestre
               </label>
