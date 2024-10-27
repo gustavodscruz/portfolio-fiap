@@ -145,6 +145,6 @@ const AdicionarTarefa = () => {
 
 export default AdicionarTarefa
 
-function useNavigate() {
-  throw new Error('Function not implemented.');
-}
+// function useNavigate() {
+//   throw new Error('Function not implemented.');
+// }
