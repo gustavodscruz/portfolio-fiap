@@ -6,7 +6,6 @@ import { BiEdit } from "react-icons/bi";
 import { MdAddBox, MdDelete } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import GenericModal from "../GenericModal";
-import { IoMdEye } from "react-icons/io";
 
 const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
   const [openDisplay, setOpenDisplay] = useState({
@@ -46,7 +45,7 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
       setTarefas(data);
     } catch (error) {
       console.error("Erro: " + error);
-      setTarefas(null);
+      setTarefas([]);
     }
   };
 
@@ -85,15 +84,12 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
   };
 
   const handleReadTarefa = (id: Tarefa['id']) => {
-    navigate.push(`${window.location.origin}/tarefa/ver/${id}`)
+    navigate.push(`${window.location.origin}/tarefa/ver/${id}`);
   }
-
 
   return (
     <>
-      <div className={`${displayModal ? 'block' : 'hidden'}`}>
-        <GenericModal show={displayModal} text={modalText} onClose={fecharModal} />
-      </div>
+      <GenericModal show={displayModal} text={modalText} onClose={fecharModal} />
       <Section>
         <div
           className={`${openDisplay.autor ? "flex" : "hidden"} bg-[#011625] w-max rounded *:text-primary-text flex-col gap-1`}
@@ -178,7 +174,7 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
         </thead>
         <tbody className="bg-[#001d31]">
           {
-            tarefas ?
+            Array.isArray(tarefas) && tarefas.length > 0 ?
               (tarefas
                 .filter((tarefa) => {
                   const matchesTipo = tarefa.tipo.includes(tipoTarefa);
@@ -187,8 +183,8 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                   return matchesTipo && matchesAuthor && matchesMateria;
                 })
                 .map((tarefa, indice) => (
-                  <tr key={indice} 
-                  className="hover:bg-[#004a7d] transition-all duration-300">
+                  <tr key={indice} onClick={() => handleReadTarefa(tarefa.id)} 
+                  className="hover:bg-[#004a7d] transition-all duration-300 cursor-pointer">
                     <td className="p-5 text-primary-text font-secondary font-light text-left ">
                       {tarefa.autor}
                     </td>
@@ -201,19 +197,14 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                     <td className="p-5 text-primary-text font-secondary font-light text-center ">
                       {tarefa.tipo}
                     </td>
-                    <td className="p-5 text-primary-text font-secondary font-light text-center  flex justify-evenly gap-2 items-center w-full h-full ">
-                      <IoMdEye size={30} className="hover:scale-125 cursor-pointer transition-all duration-300" 
-                      color="#1267bb"
-                      onClick={() => handleReadTarefa(tarefa.id)}
-                      />
-                      <BiEdit size={30} className="hover:scale-125 cursor-pointer transition-all duration-300" color="#4300ff" onClick={()=> navigate.push(`/tarefa/${tarefa.id}`)} />
-                      <MdDelete size={30} className="hover:scale-125 cursor-pointer transition-all duration-300" color="#a43400" onClick={() => handleDelete(tarefa.id)} />
+                    <td className="p-5 text-primary-text font-secondary font-light text-center  flex justify-evenly items-center w-full h-full ">
+                      <BiEdit size={30} className="hover:scale-125 cursor-pointer transition-all duration-300 " color="#4300ff" />
+                      <MdDelete size={30} className="hover:scale-125 cursor-pointer transition-all duration-300 " color="#a43400" onClick={(e) => { e.stopPropagation(); handleDelete(tarefa.id); }} />
                     </td>
                   </tr>
                 ))) : (
-
-                  <tr>
-                <td colSpan={6} className="p-5 text-primary-text font-secondary font-light text-left border-b border-[#1b3040] w-full m-auto">
+                <tr>
+                  <td colSpan={6} className="p-5 text-primary-text font-secondary font-light text-left border-b border-[#1b3040] w-full m-auto">
                     <p className="text-center">Não foi possível ver as tarefas!</p>
                   </td>
                 </tr>
