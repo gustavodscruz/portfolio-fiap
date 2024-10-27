@@ -24,7 +24,7 @@ export default function EditTarefa({ params }: { params: { id: number } }) {
 
     useEffect(() => {
         const chamadaApi = async() => {
-            const response = await fetch(`http://localhost:3000/api/tarefa/${params.id}`)
+            const response = await fetch(`${window.location.origin}/api/tarefa/${params.id}`)
             const data  = await response.json();
             console.log(data);
             setTarefa(data);
@@ -36,7 +36,7 @@ export default function EditTarefa({ params }: { params: { id: number } }) {
         e.preventDefault()
 
         try{
-          const data = await fetch(`http://localhost:3000/api/tarefa/${params.id}`,{
+          const data = await fetch(`${window.location.origin}/api/tarefa/${params.id}`,{
             method:"PUT",
             headers:{
               "Content-Type":"application/json"

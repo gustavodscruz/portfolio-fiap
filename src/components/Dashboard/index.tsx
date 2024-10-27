@@ -10,7 +10,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/tarefa');
+        const response = await fetch(`${window.location.origin}/api/tarefa`);
         const data : Tarefa[]  = await response.json()
         setTarefas(data);
       } catch (error) {

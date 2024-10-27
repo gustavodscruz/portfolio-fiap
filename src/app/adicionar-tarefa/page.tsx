@@ -35,7 +35,7 @@ const AdicionarTarefa = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:3000/api/tarefa`, {
+      const response = await fetch(`${window.location.origin}/api/tarefa`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(novaTarefa),

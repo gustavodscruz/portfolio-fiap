@@ -38,7 +38,7 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
   const [tarefas, setTarefas] = useState<Tarefa[] | null>(null);
   const handleTarefas = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/tarefa/');
+      const response = await fetch(`${window.location.origin}/api/tarefa/`);
       if (!response.ok) {
         throw new Error("Não foi possível recuperar as tarefas!");
       }
@@ -55,7 +55,7 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
   }, []);
 
   const addTarefa = () => {
-    navigate.push('http://localhost:3000/adicionar-tarefa/');
+    navigate.push(`${window.location.origin}/adicionar-tarefa/`);
   };
 
   const [displayModal, setDisplayModal] = useState<boolean>(false);
@@ -67,7 +67,7 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
 
   const handleDelete = async (id: number) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/tarefa/${id}`, {
+      const response = await fetch(`${window.location.origin}/api/tarefa/${id}`, {
         method: 'DELETE',
       });
 
@@ -85,7 +85,7 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
   };
 
   const handleReadTarefa = (id: Tarefa['id']) => {
-    navigate.push(`http://localhost:3000/tarefa/ver/${id}`)
+    navigate.push(`${window.location.origin}/tarefa/ver/${id}`)
   }
 
 
