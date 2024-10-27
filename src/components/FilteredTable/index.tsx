@@ -91,7 +91,7 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
     }
   };
 
-  const handleReadTarefa = (id: Tarefa["id"]) => {
+  const handleReadTarefa = (id: Tarefa["$id"]) => {
     navigate.push(`${window.location.origin}/tarefa/ver/${id}`);
   };
 
@@ -235,7 +235,7 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                       size={30}
                       className="hover:scale-125 cursor-pointer transition-all duration-300 "
                       color="#2d5ded"
-                      onClick={() => handleReadTarefa(tarefa.id)}
+                      onClick={() => handleReadTarefa(tarefa.$id)}
                     />
                     <BiEdit
                       size={30}
@@ -248,7 +248,7 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                       color="#a43400"
                       onClick={(e) => {
                         e.stopPropagation();
-                        handleDelete(tarefa.id);
+                        handleDelete(tarefa.$id);
                       }}
                     />
                   </td>

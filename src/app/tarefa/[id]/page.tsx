@@ -11,7 +11,7 @@ export default function EditTarefa({ params }: { params: { id: number } }) {
     const navigate = useRouter();
 
     const [tarefa, setTarefa] = useState<Tarefa>({
-        id:0,
+        $id:0,
         autor:"Felipe Ribeiro",
         titulo: "",
         tipo: "Challenge", 
@@ -45,7 +45,7 @@ export default function EditTarefa({ params }: { params: { id: number } }) {
           })
           if(data.ok){
             setTarefa({
-              id:0,
+              $id:0,
               autor:"Felipe Ribeiro",
               titulo: "",
               tipo: "Challenge", 
