@@ -25,7 +25,7 @@ export const tiposTarefa = [
 export type TipoTarefa = (typeof tiposTarefa)[number];
 
 export type Tarefa = {
-  id: number;
+  $id: number;
   autor: Autor;
   titulo: string;
   materia: Materia;

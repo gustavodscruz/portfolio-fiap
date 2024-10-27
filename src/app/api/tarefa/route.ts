@@ -1,30 +1,59 @@
+import { client } from "@/lib/appwrite_client";
 import { Tarefa } from "@/utils/tarefas";
-import { promises as fs } from "fs";
+import { Databases, ID } from "appwrite";
 import { NextResponse } from "next/server";
 
+const database = new Databases(client);
 
 
 export async function GET() {
     try {
-        const file = await fs.readFile(process.cwd() + '/src/data/base.json', 'utf-8');
-        const produtos = await JSON.parse(file);
-        return NextResponse.json(produtos);
+        // console.log("Database ID:", process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID);
+        // console.log("Collection ID:", process.env.NEXT_PUBLIC_APPWRITE_COLLECTIONS_ID);
+
+        const response = await database.listDocuments(
+            process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID as string,
+            process.env.NEXT_PUBLIC_APPWRITE_COLLECTIONS_ID as string
+        );
+
+        return NextResponse.json(response.documents);
     } catch (error) {
-        return NextResponse.json({ error: "Erro ao recupera os produto!: " + error });
+        console.error("Falha na leitura dos tarefas!", error);
+        return NextResponse.json({ error: "Erro ao recupera os tarefa!: " + error });
     }
 }
 
 export async function POST(request: Request) {
     try {
-        const file = await fs.readFile(process.cwd() + '/src/data/base.json', 'utf-8');
-        const tarefas: Tarefa[] = await JSON.parse(file);
-        const tarefa: Tarefa = await request.json();
-        tarefa.id = (tarefas[tarefas.length - 1].id + 1);
-        tarefas.push(tarefa);       
-        const fileUpdate = JSON.stringify(tarefas);
-        await fs.writeFile(process.cwd() + '/src/data/base.json', fileUpdate);
-        return NextResponse.json(tarefa);
+        const { autor, titulo, materia, tipo, descricao, foto, semestre, nota, feedback } = await request.json();
+
+        if (!autor || !titulo || !materia || !tipo || !descricao || nota === undefined) {
+            return NextResponse.json({ error: "Campos obrigatórios faltando!" }, { status: 400 });
+        }
+
+        const newTarefa: Tarefa = {
+            $id: 0, // O ID será gerado pelo Appwrite
+            autor,
+            titulo,
+            materia,
+            tipo,
+            descricao,
+            foto: foto || "", // Valor padrão para foto
+            semestre: semestre || 1, // Valor padrão para semestre
+            nota,
+            feedback: feedback || "" // Valor padrão para feedback
+        };
+
+        const response = await database.createDocument(
+            process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID as string,
+            process.env.NEXT_PUBLIC_APPWRITE_COLLECTIONS_ID as string,
+            ID.unique(),
+            newTarefa
+        );
+
+        return NextResponse.json(response);
     } catch (error) {
-        return NextResponse.json({ error: "Erro ao cadastrar produto!: " + error });
+        console.error("Falha na criação de tarefa!", error)
+        return NextResponse.json({ error: "Erro ao cadastrar tarefa!: " + error });
     }
 }
