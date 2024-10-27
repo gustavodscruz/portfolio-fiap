@@ -201,13 +201,14 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                       {tarefa.tipo}
                     </td>
                     <td className="p-5 text-primary-text font-secondary font-light text-center  flex justify-evenly items-center w-full h-full ">
-                      <BiEdit size={30} className="hover:scale-125 cursor-pointer transition-all duration-300 " color="#4300ff" />
+                      <BiEdit size={30} className="hover:scale-125 cursor-pointer transition-all duration-300 " color="#4300ff" onClick={()=> navigate.push(`/tarefa/${tarefa.id}`)} />
                       <MdDelete size={30} className="hover:scale-125 cursor-pointer transition-all duration-300 " color="#a43400" onClick={() => handleDelete(tarefa.id)} />
                     </td>
                   </tr>
                 ))) : (
-                <tr>
-                  <td colSpan={6} className="p-5 text-primary-text font-secondary font-light text-left border-b border-[#1b3040] w-full m-auto">
+
+                  <tr>
+                <td colSpan={6} className="p-5 text-primary-text font-secondary font-light text-left border-b border-[#1b3040] w-full m-auto">
                     <p className="text-center">Não foi possível ver as tarefas!</p>
                   </td>
                 </tr>

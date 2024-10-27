@@ -12,7 +12,7 @@ export default function PageNotFound() {
           alt="Como a IA pode ajudar a solucionar problemas?"
           height={100}
           width={600}
-          className='object-contain border-4 border-red-custom rounded-md bg-red-100 max-w-1/2 m-auto rounded-lg'
+          className='object-contain border-4 border-red-custom bg-red-100 max-w-1/2 m-auto rounded-lg'
       />
     </div>
 
