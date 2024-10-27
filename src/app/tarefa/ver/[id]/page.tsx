@@ -20,7 +20,7 @@ export default function ViewTarefa({ params }: { params: { id: number } }) {
     const chamadaApi = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/tarefa/${params.id}`
+          `${window.location.origin}/api/tarefa/${params.id}`
         );
         if (!response.ok) {
           throw new Error("Erro ao obter tarefa!");
