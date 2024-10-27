@@ -84,8 +84,11 @@ export default function ViewTarefa({ params }: { params: { id: number } }) {
             </div>
 
             <p className="text-primary-text text-xl text-center">
-              {tarefa.descricao}
+              {tarefa.descricao.charAt(0).toUpperCase() + tarefa.descricao.slice(1)}
             </p>
+            {tarefa.feedback ? (
+              <p className="text-primary-text text-xl text-center">Feedback: {tarefa.feedback}</p>
+            ) : ''} 
           </>
         ) : (
           ""

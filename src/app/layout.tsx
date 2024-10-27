@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css"
-import Header from "@/components/Header/header";
-import Footer from "@/components/Footer/footer";
+import Header from "@/components/header/header";
 import localFont from "next/font/local";
 
 export const metadata: Metadata = {
@@ -32,7 +31,6 @@ export default function RootLayout({
         <main className="flex-grow p-4">
         {children}
         </main>
-        <Footer/>
       </body>
     </html>
   );
