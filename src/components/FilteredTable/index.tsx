@@ -6,6 +6,7 @@ import { BiEdit } from "react-icons/bi";
 import { MdAddBox, MdDelete } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import GenericModal from "../GenericModal";
+import { IoMdEye } from "react-icons/io";
 
 const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
   const [openDisplay, setOpenDisplay] = useState({
@@ -186,8 +187,8 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                   return matchesTipo && matchesAuthor && matchesMateria;
                 })
                 .map((tarefa, indice) => (
-                  <tr key={indice} onClick={() => handleReadTarefa(tarefa.id)} 
-                  className="hover:bg-[#004a7d] transition-all duration-300 cursor-pointer">
+                  <tr key={indice} 
+                  className="hover:bg-[#004a7d] transition-all duration-300">
                     <td className="p-5 text-primary-text font-secondary font-light text-left ">
                       {tarefa.autor}
                     </td>
@@ -200,9 +201,13 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                     <td className="p-5 text-primary-text font-secondary font-light text-center ">
                       {tarefa.tipo}
                     </td>
-                    <td className="p-5 text-primary-text font-secondary font-light text-center  flex justify-evenly items-center w-full h-full ">
-                      <BiEdit size={30} className="hover:scale-125 cursor-pointer transition-all duration-300 " color="#4300ff" onClick={()=> navigate.push(`/tarefa/${tarefa.id}`)} />
-                      <MdDelete size={30} className="hover:scale-125 cursor-pointer transition-all duration-300 " color="#a43400" onClick={() => handleDelete(tarefa.id)} />
+                    <td className="p-5 text-primary-text font-secondary font-light text-center  flex justify-evenly gap-2 items-center w-full h-full ">
+                      <IoMdEye size={30} className="hover:scale-125 cursor-pointer transition-all duration-300" 
+                      color="#1267bb"
+                      onClick={() => handleReadTarefa(tarefa.id)}
+                      />
+                      <BiEdit size={30} className="hover:scale-125 cursor-pointer transition-all duration-300" color="#4300ff" onClick={()=> navigate.push(`/tarefa/${tarefa.id}`)} />
+                      <MdDelete size={30} className="hover:scale-125 cursor-pointer transition-all duration-300" color="#a43400" onClick={() => handleDelete(tarefa.id)} />
                     </td>
                   </tr>
                 ))) : (
