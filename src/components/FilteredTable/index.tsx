@@ -83,6 +83,11 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
     }
   };
 
+  const handleReadTarefa = (id: Tarefa['id']) => {
+    navigate.push(`http://localhost:3000/tarefa/ver/${id}`)
+  }
+
+
   return (
     <>
       <div className={`${displayModal ? 'block' : 'hidden'}`}>
@@ -181,7 +186,8 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                   return matchesTipo && matchesAuthor && matchesMateria;
                 })
                 .map((tarefa, indice) => (
-                  <tr key={indice}>
+                  <tr key={indice} onClick={() => handleReadTarefa(tarefa.id)} 
+                  className="hover:bg-[#004a7d] transition-all duration-300 cursor-pointer">
                     <td className="p-5 text-primary-text font-secondary font-light text-left ">
                       {tarefa.autor}
                     </td>
@@ -200,10 +206,11 @@ const FilteredTable = ({ tipoTarefa }: { tipoTarefa: Tarefa["tipo"] }) => {
                     </td>
                   </tr>
                 ))) : (
-                <tr>
+
+                  <tr>
                 <td colSpan={6} className="p-5 text-primary-text font-secondary font-light text-left border-b border-[#1b3040] w-full m-auto">
-                  <p className="text-center">Não foi possível ver as tarefas!</p>
-                </td>
+                    <p className="text-center">Não foi possível ver as tarefas!</p>
+                  </td>
                 </tr>
               )
           }
